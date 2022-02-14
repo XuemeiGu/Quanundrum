@@ -319,6 +319,72 @@ def forward_inference(protocol, subsys_x, t_x, subsys_y, t_y, silent=True):
                           mapping)
 
 
+# Partial forward inference for a particular outcome
+def forward_inference_partial(protocol, subsys_x, outcome_i, t_x, subsys_y, t_y, silent=True):
+    # Set up the engine and resource qubits
+    qtree = QuantumTree(QuantumSystem(protocol.get_requirements(), silent))
+
+    qsys = qtree.branches[0]
+    n_mem_options = 2 ** len(qsys[subsys_x])  # number of possible subsys_x states
+
+    # Check that the given times exist in the protocol
+    assert t_x in protocol.get_times() and t_y in protocol.get_times(), 'Times t_x = %d, t_y = %d ' \
+                                                                        'do not match protocol times' % (
+                                                                            t_x, t_y)
+
+    # Prepare the branching structure up to the inference start point t_x
+    protocol.run_manual(qtree,
+                        t_end=t_x,
+                        silent=silent)
+
+    # Build up the mapping from input (subsys_x) states to output (subsys_y) states
+    if not silent: print('XXXXXXXXX Reasoning starts XXXXXXXXXX')
+    mapping = {}
+    for branch in qtree:  # every branch is a `QuantumSystem` instance
+        if not silent: print('XXXXXXXXXXXXXXXXXXXX')
+        # get the state of subsys_x at t_x for this branch ('memory_state')
+        wavefunc = branch.get_wavefunction()
+        memory_state = []
+        n = outcome_i
+        output_n_subspace = branch.subspace_of_state_n(subsys_x, n)
+        if overlaps_with_subspace(wavefunc, output_n_subspace):
+            memory_state.append(n)
+        assert len(memory_state) == 1, 'More than one possible memory state. ' \
+                                       'Seems like there is a bug in your implementation'
+        memory_in = memory_state[0]
+        if not silent: print('MEMORY STATE OF {0} IS:'.format(subsys_x), memory_in)
+
+        # Run protocol from t_x to t_y on a `QuantumTree` with root `branch`
+        subtree = QuantumTree(branch)
+        protocol.run_manual(subtree,
+                            t_start=t_x + 1,
+                            t_end=t_y,
+                            silent=silent)
+
+        # compute the possible states a the end
+        possible_states = to_flat_unique(get_possible_outcomes(subtree, subsys_y))
+        if not silent: print('POSSIBLE STATES OF {0} ARE:'.format(subsys_y), possible_states)
+
+        # map memory state i of subsys_x to list of compatible output states for subsys_y
+        try:
+            mapping[memory_in] += possible_states  # if possible states from other branches already exist, simply append
+        except:
+            mapping[memory_in] = possible_states
+        mapping[memory_in] = list(set(mapping[memory_in]))  # Remove duplicates (e.g. [0,0,1] -> [0,1])
+
+        # Reset all qubits in qsys to state 0
+        reset(subtree, silent)
+        reset(branch, silent)
+
+    # Reset the prepared branching structure for deallocation
+    reset(qtree, silent)
+    reset(qsys, silent)
+
+    return InferenceTable(subsys_x, t_x,
+                          subsys_y, t_y,
+                          mapping)
+
+
 def backward_inference(protocol, subsys_x, t_x, subsys_y, t_y, silent=True):
     """
     Backward inference answers the question:
