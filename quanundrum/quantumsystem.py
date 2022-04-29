@@ -11,9 +11,9 @@ import  numpy as np
 from projectq import MainEngine
 from projectq.ops import X, Measure, All
 
-from qthought.utils.subspace import all_basis_vectors, outer_subspace_product, renormalize, filter_subspace, \
+from quanundrum.utils.subspace import all_basis_vectors, outer_subspace_product, renormalize, filter_subspace, \
     overlaps_with_subspace
-from qthought.utils.general import print_state, access_state, int_to_bitstring, readout, cround
+from quanundrum.utils.general import print_state, access_state, int_to_bitstring, readout, cround
 
 from .agents import Agent
 from .requirements import Requirements

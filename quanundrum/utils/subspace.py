@@ -2,7 +2,7 @@
 Author: Simon Mathis (mathissi@ethz.ch)
 Date: 25.12.2018
 
-Library corresponding to assumption Q in the RF paper.
+Library corresponding to assumption Q in the FR paper.
 Contains the semantics of the 'Born rule' , i.e. the overlap
 computation in our implementation.
 '''

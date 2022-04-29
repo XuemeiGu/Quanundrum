@@ -1,10 +1,10 @@
 import numpy as np
 
-fimport qthought.utils as ut
-from qthought.protocol import Protocol, ProtocolStep
-from qthought.quantumsystem import QuantumSystem
-from qthought.agents import observe
-from qthought.inference_procedures import forward_inference, backward_inference
+fimport quanundrum.utils as ut
+from quanundrum.protocol import Protocol, ProtocolStep
+from quanundrum.quantumsystem import QuantumSystem
+from quanundrum.agents import observe
+from quanundrum.inference_procedures import forward_inference, backward_inference
 from projectq.ops import H
 
 

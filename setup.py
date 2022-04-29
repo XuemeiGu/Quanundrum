@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 
-# This reads the __version__ variable from qthought/_version.py
-exec(open('qthought/_version.py').read())
+# This reads the __version__ variable from quanundrum/_version.py
+exec(open('quanundrum/_version.py').read())
 
 # Readme file as long_description:
 long_description = open('README.md').read()
@@ -13,12 +13,12 @@ with open('requirements.txt', 'r') as f_requirements:
 requirements = [r.strip() for r in requirements]
 
 setup(
-    name='qthought',
+    name='quanundrum',
     version=__version__,
-    author='qthought',
-    author_email='simon.mathis@gmail.com',
-    url='https://github.com/Croydon-Brixton/qthought',
-    description=('qthought - '
+    author='quanundrum',
+    author_email='jangnurgin@gmail.com,simon.mathis@gmail.com,',
+    url='https://github.com/jangnur/Quanundrum',
+    description=('quanundrum - '
                  'An open source software framework for simulating quantum thought experiments'),
     long_description=long_description,
     install_requires=requirements,

@@ -3,16 +3,16 @@ import os
 import warnings
 
 # if pip install doesn't work for you, please uncomment and set to local path:
-#sys.path.append(os.path.abspath('/Users/nuri/qthought/qthought')) 
+#sys.path.append(os.path.abspath('/Users/nuri/quanundrum/quanundrum')) 
 #warnings.filterwarnings('ignore')
 
 import numpy as np
 from projectq.meta import Control
 from projectq.ops import H, BasicGate, Measure
 
-from qthought.interpretations.copenhagen_theory import observe
-from qthought.protocol import ProtocolStep
-from qthought.utils.general import readout, print_state
+from quanundrum.interpretations.copenhagen_theory import observe
+from quanundrum.protocol import ProtocolStep
+from quanundrum.utils.general import readout, print_state
 
 
 # TODO: Think of a way to more strongly implement the correct timing of the protocol and protocol steps. Also think

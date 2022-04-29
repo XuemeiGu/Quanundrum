@@ -1,4 +1,4 @@
-# QThought - a platform to simulate thought experiments with quantum agents
+# Quanundrum - a platform to simulate thought experiments with quantum agents
 
 We introduce a software package that allows users to design and run simulations of thought experiments in quantum theory. In particular, it covers cases where reasoning agents are modelled as quantum systems, such as Wigner's friend experiment. Users can customize the protocol of the experiment, the inner workings of agents (e.g.\ the quantum circuit that models their reasoning process), the abstract logical system used (which may or not allow agents to combine premises and make inferences about each other's reasoning), and the interpretation of quantum theory used by different agents (for example collapse, Copenhagen, many worlds or Bohmian mechanics). 
 The software is written in a quantum programming language, [ProjectQ], and as such the simulations of thought experiments can in principle run on quantum hardware. 
@@ -9,12 +9,7 @@ The software is written in a quantum programming language, [ProjectQ], and as su
 Our software platform is based on [ProjectQ]. To install it, please follow the instructions in [Tutorials]. 
 To access Jupyter notebooks, follow guidelines at the [Jupyter website].
 
-To install the pre-alpha version, you can use
-```
-pip install -i https://test.pypi.org/simple/ qthought
-```
-
-Alternatively, you can clone this github repository to your local machine, navigate to within the qthought folder and call
+Alternatively, you can clone this github repository to your local machine, navigate to within the quanundrum folder and call
 ```
 pip install .
 ``` 
@@ -24,17 +19,17 @@ pip install .
 
 The project is structured as follows: users can customize the protocol of the experiment, the inner workings of agents (e.g. the quantum circuit that models their reasoning process), the abstract logical system used (which may or not allow agents to combine premises and make inferences about each other's reasoning), and the interpretation of quantum theory used by different agents (for example collapse, Copenhagen, many worlds or Bohmian mechanics). In the corresponding folders, we give examples of how one can program all of the mentioned above, and a PDF file with a technical explanation; the list of the examples is going to extend over time. Additionally, all protocols are accompannied by a Jupyter notebook, explaining every step in a simple fashion.
 
-0. Schematic software structure and motivation: [qthought/software_structure][SoftStr]
+0. Schematic software structure and motivation: [quanundrum/software_structure][SoftStr]
 1. Protocol examples: 
-    - simple protocols [qthought/simpleExamples][SimplEx]
-    - Frauchiger-Renner thought experiment [qthought/FrauchigerRennerExample][FREx]
+    - simple protocols [quanundrum/simpleExamples][SimplEx]
+    - Frauchiger-Renner thought experiment [quanundrum/FrauchigerRennerExample][FREx]
 
 2. Consistency rules, logical reasoning:
-    - modal logic [qthought/logicalReasoning][ModalC]
+    - modal logic [quanundrum/logicalReasoning][ModalC]
 
 3. Interpretations:
-    - Copenhagen interpretation [qthought/interpretations/copenhagen_theory][CopT]
-    - collapse theories [qthought/interpretations/collapse_theory][ColT]
+    - Copenhagen interpretation [quanundrum/interpretations/copenhagen_theory][CopT]
+    - collapse theories [quanundrum/interpretations/collapse_theory][ColT]
 
 ## Basic elements to run
 
@@ -55,26 +50,26 @@ In the future releases, we plan to extend this list by adding Bohmian mechanics 
 
 ## Please cite
 
-When using QThought for research projects, please cite this repository.
+When using quanundrum for research projects, please cite this repository.
 
 ## Authors
 
-The first release of QThought was developed by Simon Mathis, Nuriya Nurgalieva, Lídia del Rio and Renato Renner at ETH Zürich.
+The first release of quanundrum was developed by Simon Mathis, Nuriya Nurgalieva, Lídia del Rio and Renato Renner at ETH Zürich.
 
 ## License
 
-QThought is licensed under the [MIT License][MIT].
+quanundrum is licensed under the [MIT License][MIT].
 
 
 
 [ProjectQ]: <https://projectq.ch>
 [Tutorials]: <https://projectq.readthedocs.io/en/latest/tutorials.html>
 [Jupyter website]: <https://jupyter.readthedocs.io/en/latest/content-quickstart.html>
-[SimplEx]: <https://github.com/Croydon-Brixton/qthought/blob/master/qthought/simpleExamples>
-[FREx]: <https://github.com/Croydon-Brixton/qthought/tree/master/qthought/FrauchigerRennerExample>
-[ModalC]: <https://github.com/Croydon-Brixton/qthought/blob/master/qthought/logicalReasoning/consistency.py>
-[CopT]: <https://github.com/Croydon-Brixton/qthought/blob/master/qthought/interpretations/copenhagen_theory.py>
-[ColT]: <https://github.com/Croydon-Brixton/qthought/blob/master/qthought/interpretations/collapse_theory.py>
-[SoftStr]: <https://github.com/Croydon-Brixton/qthought/blob/master/qthought/software_structure.pdf>
-[Simple1]: <https://github.com/Croydon-Brixton/qthought/blob/master/qthought/simpleExamples/simple%20example%20I.ipynb>
+[SimplEx]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/simpleExamples>
+[FREx]: <https://github.com/Croydon-Brixton/quanundrum/tree/master/quanundrum/FrauchigerRennerExample>
+[ModalC]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/logicalReasoning/consistency.py>
+[CopT]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/interpretations/copenhagen_theory.py>
+[ColT]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/interpretations/collapse_theory.py>
+[SoftStr]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/software_structure.pdf>
+[Simple1]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/simpleExamples/simple%20example%20I.ipynb>
 [MIT]: <https://www.opensource.org/licenses/MIT>

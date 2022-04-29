@@ -2,7 +2,7 @@
 Author: Simon Mathis (mathissi@ethz.ch)
 Date: 25.12.2018
 
-Library corresponding to assumption C in the RF paper.
+Library corresponding to assumption C in the FR paper.
 Contains the semantics of the inference, i.e. the updating of inference
 tables.
 """
@@ -10,9 +10,9 @@ tables.
 # if pip install doesn't work for you, please uncomment and set to local path:
 #import sys
 #import os
-#sys.path.append(os.path.abspath('/Users/nuri/qthought/qthought')) 
+#sys.path.append(os.path.abspath('/Users/nuri/quanundrum/quanundrum')) 
 
-from qthought.agents import InferenceTable
+from quanundrum.agents import InferenceTable
 
 def consistency(tbl_pre: InferenceTable, tbl_post: InferenceTable):
     """
