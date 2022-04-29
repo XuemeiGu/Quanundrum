@@ -65,11 +65,11 @@ quanundrum is licensed under the [MIT License][MIT].
 [ProjectQ]: <https://projectq.ch>
 [Tutorials]: <https://projectq.readthedocs.io/en/latest/tutorials.html>
 [Jupyter website]: <https://jupyter.readthedocs.io/en/latest/content-quickstart.html>
-[SimplEx]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/simpleExamples>
-[FREx]: <https://github.com/Croydon-Brixton/quanundrum/tree/master/quanundrum/FrauchigerRennerExample>
-[ModalC]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/logicalReasoning/consistency.py>
-[CopT]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/interpretations/copenhagen_theory.py>
-[ColT]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/interpretations/collapse_theory.py>
-[SoftStr]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/software_structure.pdf>
-[Simple1]: <https://github.com/Croydon-Brixton/quanundrum/blob/master/quanundrum/simpleExamples/simple%20example%20I.ipynb>
+[SimplEx]: <https://github.com/jangnur/Quanundrum/tree/master/quanundrum/simpleExamples>
+[FREx]: <https://github.com/jangnur/Quanundrum/tree/master/quanundrum/FrauchigerRennerExample>
+[ModalC]: <https://github.com/jangnur/Quanundrum/tree/master/quanundrum/logicalReasoning/consistency.py>
+[CopT]: <https://github.com/jangnur/Quanundrum/tree/master/quanundrum/interpretations/copenhagen_theory.py>
+[ColT]: <https://github.com/jangnur/Quanundrum/tree/master/quanundrum/interpretations/collapse_theory.py>
+[SoftStr]: <https://github.com/jangnur/Quanundrum/tree/master/quanundrum/software_structure.pdf>
+[Simple1]: <https://github.com/jangnur/Quanundrum/tree/master/quanundrum/simpleExamples/simple%20example%20I.ipynb>
 [MIT]: <https://www.opensource.org/licenses/MIT>
