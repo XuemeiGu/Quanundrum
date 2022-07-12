@@ -48,9 +48,7 @@ def forward_inference(protocol,
         if not silent: print('----- Case %d -----' % i)
 
         # Run protocol until t_x
-        protocol.run(qsys,
-                     t_end=t_x,
-                     silent=silent)
+        protocol.run(qsys,t_end=t_x,silent=silent)
 
         # At t_x project wavefunction to subspace containing |i(subsys_x)>
         qsys.project_to_subspace(qsys.subspace_of_state_n(subsys_x, i))     # TODO: What if projection = 0? Error?
@@ -109,39 +107,37 @@ def forward_inference_partial(protocol,
     # Calculate the possible inference
     print('----- Case %d -----' % i)
 
-        # Run protocol until t_x
-        protocol.run(qsys,
-                     t_end=t_x,
-                     silent=silent)
+    # Run protocol until t_x
+    protocol.run(qsys,t_end=t_x,silent=silent)
 
-        # At t_x project wavefunction to subspace containing |i(subsys_x)>
-        qsys.project_to_subspace(qsys.subspace_of_state_n(subsys_x, i))     # TODO: What if projection = 0? Error?
-        if not silent:
-            print('Projecting to subspace %s=%d' % (subsys_x, i))
-            qsys.print_wavefunction()
+    # At t_x project wavefunction to subspace containing |i(subsys_x)>
+    qsys.project_to_subspace(qsys.subspace_of_state_n(subsys_x, i))     # TODO: What if projection = 0? Error?
+    if not silent:
+        print('Projecting to subspace %s=%d' % (subsys_x, i))
+        qsys.print_wavefunction()
 
-        # Run protocol from t_x to t_y
-        protocol.run(qsys,
-                     t_start=t_x + 1,
-                     t_end=t_y,
-                     silent=silent)
+    # Run protocol from t_x to t_y
+    protocol.run(qsys,
+            t_start=t_x + 1,
+            t_end=t_y,
+            silent=silent)
 
-        # Extract the statevector
-        wavefunc = qsys.get_wavefunction()
+    # Extract the statevector
+    wavefunc = qsys.get_wavefunction()
 
-        # Reset all qubits in qsys to state 0
-        qsys.reset(silent)
+    # Reset all qubits in qsys to state 0
+    qsys.reset(silent)
 
-        # compute the possible states a the end
-        possible_states = []
-        for j in range(n_pred_options):
-            # get the subspace corresponding to subsys_y in state j
-            output_j_subspace = qsys.subspace_of_state_n(subsys_y, j)
-            if overlaps_with_subspace(wavefunc, output_j_subspace):
+    # compute the possible states a the end
+    possible_states = []
+    for j in range(n_pred_options):
+        # get the subspace corresponding to subsys_y in state j
+        output_j_subspace = qsys.subspace_of_state_n(subsys_y, j)
+        if overlaps_with_subspace(wavefunc, output_j_subspace):
                 possible_states += [j]
 
-        # map memory state i of subsys_x to list of compatible output states for subsys_y
-        mapping[i] = possible_states
+    # map memory state i of subsys_x to list of compatible output states for subsys_y
+    mapping[i] = possible_states
 
     return InferenceTable(subsys_x, t_x,
                           subsys_y, t_y,
